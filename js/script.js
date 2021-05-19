@@ -105,20 +105,23 @@
     shirtColorSelect.disabled = true;
 
     designSelect.addEventListener("change", (e) => {
-        // Enable color select once design is picked
+        // Enable and update color selections once design is picked
         shirtColorSelect.disabled = false;
 
         const selectedDesign = e.target;
-
         if (selectedDesign.value === "js puns"){
             for (let i=0; i<shirtColorOptions.length; i++){
+                shirtColorOptions[i].removeAttribute("selected");
                 shirtColorOptions[i].getAttribute("data-theme") === "js puns" ? showElement(shirtColorOptions[i]) : hideElement(shirtColorOptions[i]);
+                shirtColorOptions[0].setAttribute("selected", "true");
             }
         }
 
         if (selectedDesign.value === "heart js"){
             for (let i=0; i<shirtColorOptions.length; i++){
+                shirtColorOptions[i].removeAttribute("selected");
                 shirtColorOptions[i].getAttribute("data-theme") === "heart js" ? showElement(shirtColorOptions[i]) : hideElement(shirtColorOptions[i]);
+                shirtColorOptions[0].setAttribute("selected", "true");
             }
         }
     });
